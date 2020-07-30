@@ -1,79 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TableLayout
-        android:id="@+id/tableOfTemplate"
-        android:layout_width="719dp"
-        android:layout_height="283dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            tools:visibility="visible" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+    <Button
+        android:id="@+id/open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:text="open" />
 
     <Button
-        android:id="@+id/button_open"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="72dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="643dp"
-        android:layout_marginRight="643dp"
-        android:layout_marginBottom="49dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableOfTemplate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="open" />
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/open"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:text="save" />
 
     <Button
-        android:id="@+id/button_save"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="72dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="558dp"
-        android:layout_marginRight="558dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableOfTemplate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_open"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="save" />
+        android:id="@+id/add_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/save"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:text="add_row" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/del_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/add_row"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:text="del_row" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+</RelativeLayout>
+
