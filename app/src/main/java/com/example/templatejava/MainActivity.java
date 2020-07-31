@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ScrollView scrollView = findViewById(R.id.scroll);
         TableLayout tableLayout = new TableLayout(this);
-        for (int i = 0; i < 20; i++){
+        for (int i = 0; i < 500; i++){
             TableRow tableRow = new TableRow(this);
             for (int j = 0; j <20; j++){
                 EditText testText = new EditText(this);
