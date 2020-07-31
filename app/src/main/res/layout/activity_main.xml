@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/open_button"
         android:text="Open"
         />
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/open_button"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/save_button"
         android:text="Save"
         />
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/save_button"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/add_row_button"
         android:text="addRow"
         />
@@ -32,9 +32,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/add_row_button"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/dell_row_button"
         android:text="delRow"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/open_button"
+        android:id="@+id/my_scroll"
         />
 
 </RelativeLayout>
