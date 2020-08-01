@@ -36,10 +36,15 @@
         android:id="@+id/dell_row_button"
         android:text="delRow"
         />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_field"
+        android:layout_below="@id/open_button"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/open_button"
+        android:layout_below="@+id/text_field"
         android:id="@+id/scroll">
     </ScrollView>
 
