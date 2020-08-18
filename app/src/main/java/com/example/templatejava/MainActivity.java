@@ -1,30 +1,25 @@
 package com.example.templatejava;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private DataAdapter myAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.recyclerView = (RecyclerView) findViewById(R.id.spreadsheet);
+        this.recyclerView = findViewById(R.id.spreadsheet);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
         DataLine[] dataLines = new DataLine[50];
         for (int i = 0; i <50; i++){
             String[] source_data = new String[19];
@@ -55,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Создали layoutManager");
         this.recyclerView.setLayoutManager(layoutManager);
         System.out.println("Добавили LayoutManager к RecyclerView");
-        this.adapter = new DataAdapter(dataLines);
+        this.myAdapter = new DataAdapter(dataLines);
         System.out.println("Создали адаптер");
-        this.recyclerView.setAdapter(this.adapter);
+        this.recyclerView.setAdapter(this.myAdapter);
         System.out.println("Добавили адаптер в RecyclerView");
     }
 
