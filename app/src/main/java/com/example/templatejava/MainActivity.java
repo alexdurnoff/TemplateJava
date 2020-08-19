@@ -50,7 +50,13 @@ public class MainActivity extends AppCompatActivity {
             DataLine dataLine = new DataLine(source_data, i);
             dataLines[i] = dataLine;
         }
-        this.myAdapter = new DataAdapter(dataLines);
+        String[] dataString = new String[dataLines.length*19];
+        for (int i=0; i < dataLines.length; i++){
+            for (int j = 0; j < 19; j++){
+                dataString[i*19 + j] = dataLines[i].getDataValue()[j];
+            }
+        }
+        this.myAdapter = new DataAdapter(dataString);
         this.recyclerView.setAdapter(this.myAdapter);
     }
 
