@@ -3,13 +3,12 @@ package com.example.templatejava;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.icu.text.SymbolTable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -72,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void addRow(View view){
         int numberOfAddedRow = getCurrentRow();
-        System.out.println(numberOfAddedRow);
+        ArrayList<String> dataList = myAdapter.getDataStringList();
         for (int i = numberOfAddedRow*19; i <numberOfAddedRow*19 + 19; i++){
-
+            dataList.add(i, "");
         }
-
+        myAdapter = new DataAdapter(dataList);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.scrollToPosition(numberOfAddedRow*19);
     }
 
     public int getCurrentRow(){
