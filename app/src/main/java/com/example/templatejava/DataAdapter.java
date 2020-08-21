@@ -42,12 +42,4 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder>{
         return dataStringArray.length;
     }
 
-
-
-
-
-
-
-
-
 }

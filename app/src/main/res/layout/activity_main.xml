@@ -10,6 +10,7 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/open_button"
         android:text="Open"
+        android:onClick="openSheet"
         />
 
     <Button
@@ -27,6 +28,7 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/add_row_button"
         android:text="addRow"
+        android:onClick="addRow"
         />
     <Button
         android:layout_width="wrap_content"

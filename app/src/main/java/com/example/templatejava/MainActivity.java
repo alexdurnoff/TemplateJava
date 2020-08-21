@@ -1,14 +1,15 @@
 package com.example.templatejava;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.icu.text.SymbolTable;
 import android.os.Bundle;
-
-import java.io.FileInputStream;
-import java.util.logging.*;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,17 +17,22 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DataAdapter myAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private Button addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.addButton = findViewById(R.id.add_row_button);
         this.recyclerView = findViewById(R.id.spreadsheet);
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(this, 19);
         recyclerView.setLayoutManager(layoutManager);
-        DataLine[] dataLines = new DataLine[50];
-        for (int i = 0; i <50; i++){
+    }
+
+    public void openSheet(View view){
+        DataLine[] dataLines = new DataLine[1000];
+        for (int i = 0; i <dataLines.length; i++){
             String[] source_data = new String[19];
             source_data[0] ="QF" + i;
             source_data[1] = "Линия " + (i+1);
@@ -56,8 +62,32 @@ public class MainActivity extends AppCompatActivity {
                 dataString[i*19 + j] = dataLines[i].getDataValue()[j];
             }
         }
+        addNewSheet(dataString);
+    }
+
+    public void addNewSheet(String[] dataString){
         this.myAdapter = new DataAdapter(dataString);
         this.recyclerView.setAdapter(this.myAdapter);
+    }
+
+    public void addRow(View view){
+        int numberOfAddedRow = getCurrentRow();
+        System.out.println(numberOfAddedRow);
+        for (int i = numberOfAddedRow*19; i <numberOfAddedRow*19 + 19; i++){
+
+        }
+
+    }
+
+    public int getCurrentRow(){
+        EditText text = (EditText) layoutManager.getFocusedChild();
+        for (int i = 0; i < layoutManager.getItemCount(); i++){
+            EditText currentText = (EditText) layoutManager.findViewByPosition(i);
+            if (currentText==text){
+                return i/19;
+            }
+        }
+        return 0;
     }
 
 }
